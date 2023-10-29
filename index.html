@@ -1,35 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ubuntu Rockchip Downloads</title>
+<html lang="en" ma1="ma"><head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <title>All SD card images</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <style>
         body {
             padding-top: 4.5rem;
         }
-
         .pill {
             border-radius: 50px;
         }
-
         code.shell-root:before {
             content: "# ";
         }
-
         code.shell-normal:before {
             content: "$ ";
         }
-
         pre.wrap {
             white-space: pre-wrap;
         }
@@ -37,22 +28,45 @@
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V2XK1QS92P"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-V2XK1QS92P');
     </script>
-    <meta http-equiv="origin-trial"
-          content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
-</head>
+    <meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
 <body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">Ubuntu Rockchip</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Supported boards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip">Source code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/issues">Issues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/discussions">Discussions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/wiki">Wiki</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 <main>
     <div class="container">
-        <h2>Ubuntu Rockchip Downloads</h2>
-        <p>Ubuntu images for various RK3588 single board computers (SBCs).</p>
+        <h2>Supported boards</h2>
+        <p>Ubuntu Linux images for various ARM-based single board computers (SBCs).</p>
         <hr>
     </div>
     <div class="container">
@@ -60,202 +74,106 @@
             <thead>
             <tr>
                 <th scope="col">Board</th>
-                <th scope="col">Description</th>
-                <th scope="col">Kernel</th>
-                <th scope="col" style="text-align: center">SHA256</th>
+                <th scope="col">Board maker</th>
+                <th scope="col">SoC</th>
+                <th scope="col">CPU</th>
             </tr>
             </thead>
             <tbody>
 
-            <tr>
-                <td><a href="">Orange Pi 5</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="./boards/orangepi-5.html">
+                <td><a href="./boards/orangepi-5.html">Orange Pi 5</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Orange Pi 5</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Orange Pi 5B</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Orange Pi 5B</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Orange Pi 5 Plus</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Orange Pi 5B</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">ROCK 5B</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Orange Pi 5 Plus</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">ROCK 5A</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Orange Pi 5 Plus</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Radxa CM5 IO</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa ROCK 5B</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">NanoPi R6C</a></td>
+                <td>FriendlyElec</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa ROCK 5B</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">NanoPi R6S</a></td>
+                <td>FriendlyElec</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa ROCK 5A</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">NanoPC T6</a></td>
+                <td>FriendlyElec</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa ROCK 5A</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Mixtile Blade 3</a></td>
+                <td>Mixtile</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa CM5 IO</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">LubanCat 4</a></td>
+                <td>EmbedFire</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">Radxa CM5 IO</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Indiedroid Nova</a></td>
+                <td>9Tripod</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
 
-            <tr>
-                <td><a href="">NanoPi R6C</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">NanoPi R6C</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">NanoPi R6S</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">NanoPi R6S</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">NanoPC T6</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">NanoPC T6</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">Mixtile Blade 3</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">Mixtile Blade 3</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">LubanCat 4</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">LubanCat 4</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">Indiedroid Nova</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td><a href="">Indiedroid Nova</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-desktop-arm64-turing-rk1.img.xz">Turing
-                        RK1</a></td>
-                <td>Ubuntu Desktop 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center">📁</td>
-            </tr>
-
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-turing-rk1.img.xz">Turing
-                        RK1</a></td>
-                <td>Ubuntu Server 22.04 LTS image</td>
-                <td>5.10.160</td>
-                <td style="text-align: center"><a
-                        href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-turing-rk1.img.xz.sha256">📁</a>
-                </td>
+            <tr data-href="/boards/orangepi-5.html">
+                <td><a href="/boards/orangepi-5.html">Turing RK1</a></td>
+                <td>Turing Machines</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
             </tr>
             </tbody>
         </table>
+        <hr>
     </div>
 </main>
 </body>
