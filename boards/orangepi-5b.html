@@ -1,136 +1,75 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Ubuntu Rockchip</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css"
-          crossorigin="anonymous">
-    <style>
-        body {
-            padding-top: 4.5rem;
-        }
-
-        .pill {
-            border-radius: 50px;
-        }
-
-        code.shell-root:before {
-            content: "# ";
-        }
-
-        code.shell-normal:before {
-            content: "$ ";
-        }
-
-        pre.wrap {
-            white-space: pre-wrap;
-        }
-    </style>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-V2XK1QS92P');
-    </script>
-    <meta http-equiv="origin-trial"
-          content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<html ma1="ma"><head>
+  <title>Ubuntu Rockchip</title>
+  <style type="text/css">
+    body {
+      background: #eee;
+      margin: 33px;
+      color: #333;
+    }
+    h1 {
+      font: 2.0em "Inter",Arial,sans-serif;
+    }
+    pre.footer {
+      font: 1.0em "Inter",Arial,sans-serif;
+      margin-top: 20px;
+    }
+    h1 a:hover, h1 a:active {
+      text-decoration: none;
+      color: #111;
+    }
+    a:link {
+      text-decoration: none;
+      color: #555;
+    }
+    a:visited {
+      text-decoration: none;
+      color: #555;
+    }
+    a:hover, a:active {
+      text-decoration: underline;
+      color: maroon;
+    }
+    pre {
+      font: 0.9em/1.3em "Courier New",Courier,serif;
+      margin: 3px 0;
+      color: #777;
+    }
+    pre img {
+      display: inline;
+      width: 24px;
+      vertical-align: bottom;
+      margin-top: 10px;
+    }
+    img {
+      margin-top: 3px;
+    }
+    .title img {
+      float: left;
+      width: 48px;
+      height: 48px;
+      background: #eee;
+    }
+    .title h1 {
+      position: relative;
+      top: 8px;
+      left: 15px;
+    }
+  </style>
 </head>
-<body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="/ubuntu-rockchip-downloads/">Ubuntu Rockchip</a>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ubuntu-rockchip-downloads/">Supported boards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip">Source code</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/issues">Issues</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/discussions">Discussions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip/wiki">Wiki</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<main>
-    <div class="container">
-        <h2>Downloads for Orange Pi 5B</h2>
-        <p>Ubuntu Linux images for various ARM-based single board computers (SBCs).</p>
-        <hr>
-    </div>
-    <div class="container">
-        <table class="table table-sm table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Last modified</th>
-                <th scope="col">Size</th>
-                <th scope="col">Description</th>
-            </tr>
-            </thead>
-            <tbody>
+<body>
+<div class="title">
+  <a href="https://github.com/Joshua-Riek/ubuntu-rockchip" class="logo">
+    <img src="https://i.stack.imgur.com/Ex4HU.png" alt="Ubuntu Logo">
+    <h1>Ubuntu Rockchip</h1>
+  </a>
+</div>
 
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz">ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz</a>
-                </td>
-                <td>2023-10-29 08:19</td>
-                <td>1.3 GB</td>
-                <td>Preinstalled Desktop image</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz.sha256">ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz.sha256</a>
-                </td>
-                <td>2023-10-29 08:19</td>
-                <td>126</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz">ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz</a>
-                </td>
-                <td>2023-10-29 08:40</td>
-                <td>450.9 MB</td>
-                <td>Preinstalled Server image</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz.sha256">ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz.sha256</a>
-                </td>
-                <td>2023-10-29 08:40</td>
-                <td>125</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-        <hr>
-    </div>
-</main>
-</body>
-</html>
+
+
+<pre><img src="https://firmware.turingpi.com/icons/blank.gif" alt="Icon "> Name                                                                Last Modified     Size      Description<hr><img src="https://cdimage.ubuntu.com/icons/back.gif" alt="[PARENTDIR]"> <a href="./">Parent Directory</a>
+<img src="https://cdimage.ubuntu.com/cdicons/img.png" alt="[   ]"> <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz">ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz</a>         2023-10-29 08:19  1.3 GB    Preinstalled Desktop image
+<img src="https://cdimage.ubuntu.com/cdicons/list.png" alt="[   ]"> <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz.sha256">ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz.sha256</a>  2023-10-29 08:19  126       -
+<img src="https://cdimage.ubuntu.com/cdicons/img.png" alt="[   ]"> <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz">ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz</a>          2023-10-29 08:40  450.9 MB  Preinstalled Server image
+<img src="https://cdimage.ubuntu.com/cdicons/list.png" alt="[   ]"> <a href="https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v1.29/ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz.sha256">ubuntu-22.04.3-preinstalled-server-arm64-orangepi-5.img.xz.sha256</a>   2023-10-29 08:40  125       -
+<hr></pre><pre class="footer"><a href="https://github.com/Joshua-Riek/ubuntu-rockchip" title="Source Code">Return to GitHub</a>
+</pre></body></html>
