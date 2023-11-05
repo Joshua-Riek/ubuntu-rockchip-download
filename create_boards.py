@@ -37,18 +37,6 @@ top = """<html lang="en">
             white-space: pre-wrap;
         }}
     </style>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {{
-            dataLayer.push(arguments);
-        }}
-
-        gtag('js', new Date());
-        gtag('config', 'G-V2XK1QS92P');
-    </script>
-    <meta http-equiv="origin-trial"
-          content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
 </head>
 <body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
 <header>
@@ -58,11 +46,11 @@ top = """<html lang="en">
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="/ubuntu-rockchip-downloads/">Ubuntu Rockchip</a>
+            <a class="navbar-brand" href="../">Ubuntu Rockchip</a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/ubuntu-rockchip-downloads/">Supported boards</a>
+                        <a class="nav-link" href="../">Supported boards</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/Joshua-Riek/ubuntu-rockchip">Source code</a>
@@ -138,29 +126,26 @@ def format_bytes(size):
 file1 = open("ubuntu-orange-pi5.json", "r")
 data = json.loads(file1.read())
 file1.close()
-total = 0
 
-strs= []
+boards = []
 for y in data[1]["assets"]:
-    pretty_name = y["name"]
-    desc = "-"
-    if pretty_name.endswith(".sha256"):
+    if y["name"].endswith(".sha256"):
         desc = "-"
-    elif "desktop" in pretty_name:
+    elif "desktop" in y["name"]:
         desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10.160"
-    elif "server" in pretty_name:
+    elif "server" in y["name"]:
         desc="Ubuntu 22.04 LTS Server with Linux 5.10.160"
-    pretty_size = format_bytes(y["size"])
-    pretty_date = datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M")
-    strs.append([y["browser_download_url"], pretty_name, pretty_date, pretty_size, desc])
+    else:
+        desc = "-"
+    boards.append([y["browser_download_url"], y["name"],
+        datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
+        format_bytes(y["size"]), desc])
 
 def create_html(filename, query_name, pretty_name):
     file = open("%s" % filename, "w")
     file.write(top.format(pretty_name))
-    tables = []
-    for x in strs:
+    for x in boards:
         if query_name in x[1]:
-            tables.append(['<img src="/html/phoenixsuit.png" alt="[   ]"> <a href="turing-pi2_v1.1.0.img">' + x[1], x[2], x[3], x[4]])
             file.write(item.format(x[0], x[1], x[2], x[3], x[4]))
     file.write(bottom)
     file.close()
