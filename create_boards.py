@@ -152,7 +152,7 @@ def create_html(filename, query_name, pretty_name):
 
 
 create_html("boards/orangepi-5.html", "orangepi-5.", "Orange Pi 5")
-create_html("boards/orangepi-5b.html", "orangepi-5.", "Orange Pi 5B")
+create_html("boards/orangepi-5b.html", "orangepi-5b.", "Orange Pi 5B")
 create_html("boards/orangepi-5-plus.html", "orangepi-5-plus.", "Orange Pi 5 Plus")
 create_html("boards/rock-5a.html", "rock-5a.", "ROCK 5A")
 create_html("boards/rock-5b.html", "rock-5b.", "ROCK 5B")
