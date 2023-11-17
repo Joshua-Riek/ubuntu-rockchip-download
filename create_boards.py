@@ -128,7 +128,7 @@ data = json.loads(file1.read())
 file1.close()
 
 boards = []
-for y in data[1]["assets"]:
+for y in data[0]["assets"]:
     if y["name"].endswith(".sha256"):
         desc = "-"
     elif "desktop" in y["name"]:
