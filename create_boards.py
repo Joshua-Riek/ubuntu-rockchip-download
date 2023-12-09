@@ -164,4 +164,4 @@ create_html("boards/mixtile-blade3.html", "mixtile-blade3.", "Mixtile Blade 3")
 create_html("boards/lubancat-4.html", "lubancat-4.", "LubanCat 4")
 create_html("boards/indiedroid-nova.html", "indiedroid-nova.", "Indiedroid Nova")
 create_html("boards/turing-rk1.html", "turing-rk1.", "Turing RK1")
-
+create_html("boards/roc-rk3588s-pc.html", "roc-rk3588s-pc.", "ROC RK3588S PC")
