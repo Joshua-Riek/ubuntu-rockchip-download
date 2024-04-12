@@ -132,9 +132,22 @@ for y in data[0]["assets"]:
     if y["name"].endswith(".sha256"):
         desc = "-"
     elif "desktop" in y["name"]:
-        desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10.160"
+        desc = "Ubuntu 24.04 TLS Beta Desktop with Linux 6.1"
     elif "server" in y["name"]:
-        desc="Ubuntu 22.04 LTS Server with Linux 5.10.160"
+        desc="Ubuntu 24.04 TLS Beta Server with Linux 6.1"
+    else:
+        desc = "-"
+    boards.append([y["browser_download_url"], y["name"],
+                   datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
+                   format_bytes(y["size"]), desc])
+
+for y in data[1]["assets"]:
+    if y["name"].endswith(".sha256"):
+        desc = "-"
+    elif "desktop" in y["name"]:
+        desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10"
+    elif "server" in y["name"]:
+        desc="Ubuntu 22.04 LTS Server with Linux 5.10"
     else:
         desc = "-"
     boards.append([y["browser_download_url"], y["name"],
