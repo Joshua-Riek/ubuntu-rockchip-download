@@ -122,6 +122,24 @@ def format_bytes(size):
         return str(size)
     return str(format(size, '0.1f')) + " " + power_labels[n]
 
+def humanbytes(B):
+    """Return the given bytes as a human friendly KB, MB, GB, or TB string."""
+    B = float(B)
+    KB = float(1024)
+    MB = float(KB ** 2) # 1,048,576
+    GB = float(KB ** 3) # 1,073,741,824
+    TB = float(KB ** 4) # 1,099,511,627,776
+
+    if B < KB:
+        return '{0}'.format(int(B))
+    elif KB <= B < MB:
+        return '{0:.1f} KB'.format(B / KB)
+    elif MB <= B < GB:
+        return '{0:.1f} MB'.format(B / MB)
+    elif GB <= B < TB:
+        return '{0:.1f} GB'.format(B / GB)
+    elif TB <= B:
+        return '{0:.1f} TB'.format(B / TB)
 
 file1 = open("ubuntu-orange-pi5.json", "r")
 data = json.loads(file1.read())
@@ -132,16 +150,17 @@ for y in data[0]["assets"]:
     if y["name"].endswith(".sha256"):
         desc = "-"
     elif "desktop" in y["name"]:
-        desc = "Ubuntu 24.04 TLS Beta Desktop with Linux 6.1"
+        desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
     elif "server" in y["name"]:
-        desc="Ubuntu 24.04 TLS Beta Server with Linux 6.1"
+        desc="Ubuntu 24.04 TLS Server with Linux 6.1"
     else:
         desc = "-"
+
     boards.append([y["browser_download_url"], y["name"],
                    datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
-                   format_bytes(y["size"]), desc])
+                   humanbytes(y["size"]), desc])
 
-for y in data[1]["assets"]:
+for y in data[2]["assets"]:
     if y["name"].endswith(".sha256"):
         desc = "-"
     elif "desktop" in y["name"]:
@@ -152,7 +171,7 @@ for y in data[1]["assets"]:
         desc = "-"
     boards.append([y["browser_download_url"], y["name"],
         datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
-        format_bytes(y["size"]), desc])
+        humanbytes(y["size"]), desc])
 
 def create_html(filename, query_name, pretty_name):
     file = open("%s" % filename, "w")
@@ -167,6 +186,7 @@ def create_html(filename, query_name, pretty_name):
 create_html("boards/orangepi-5.html", "orangepi-5.", "Orange Pi 5")
 create_html("boards/orangepi-5b.html", "orangepi-5b.", "Orange Pi 5B")
 create_html("boards/orangepi-5-plus.html", "orangepi-5-plus.", "Orange Pi 5 Plus")
+create_html("boards/orangepi-5-pro.html", "orangepi-5-pro.", "Orange Pi 5 Pro")
 create_html("boards/rock-5a.html", "rock-5a.", "ROCK 5A")
 create_html("boards/rock-5b.html", "rock-5b.", "ROCK 5B")
 create_html("boards/radxa-cm5-io.html", "radxa-cm5-io.", "Radxa CM5 IO")
