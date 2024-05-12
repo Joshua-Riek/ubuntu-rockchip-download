@@ -150,28 +150,21 @@ for y in data[0]["assets"]:
     if y["name"].endswith(".sha256"):
         desc = "-"
     elif "desktop" in y["name"]:
-        desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
+        if "24.04" in y["name"]:
+            desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
+        else:
+            desc = "Ubuntu 22.04 TLS Desktop with Linux 5.10"
     elif "server" in y["name"]:
-        desc="Ubuntu 24.04 TLS Server with Linux 6.1"
+        if "24.04" in y["name"]:
+            desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
+        else:
+            desc="Ubuntu 22.04 TLS Server with Linux 5.10"
     else:
         desc = "-"
 
     boards.append([y["browser_download_url"], y["name"],
                    datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
                    humanbytes(y["size"]), desc])
-
-for y in data[2]["assets"]:
-    if y["name"].endswith(".sha256"):
-        desc = "-"
-    elif "desktop" in y["name"]:
-        desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10"
-    elif "server" in y["name"]:
-        desc="Ubuntu 22.04 LTS Server with Linux 5.10"
-    else:
-        desc = "-"
-    boards.append([y["browser_download_url"], y["name"],
-        datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
-        humanbytes(y["size"]), desc])
 
 def create_html(filename, query_name, pretty_name):
     file = open("%s" % filename, "w")
