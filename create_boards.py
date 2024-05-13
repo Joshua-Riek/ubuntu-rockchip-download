@@ -151,14 +151,14 @@ for y in data[0]["assets"]:
         desc = "-"
     elif "desktop" in y["name"]:
         if "24.04" in y["name"]:
-            desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
+            desc = "Ubuntu 24.04 LTS Desktop with Linux 6.1"
         else:
-            desc = "Ubuntu 22.04 TLS Desktop with Linux 5.10"
+            desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10"
     elif "server" in y["name"]:
         if "24.04" in y["name"]:
-            desc = "Ubuntu 24.04 TLS Desktop with Linux 6.1"
+            desc = "Ubuntu 24.04 LTS Server with Linux 6.1"
         else:
-            desc="Ubuntu 22.04 TLS Server with Linux 5.10"
+            desc="Ubuntu 22.04 LTS Server with Linux 5.10"
     else:
         desc = "-"
 
