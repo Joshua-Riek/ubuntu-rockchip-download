@@ -1,6 +1,7 @@
 import os
 import subprocess
 import tempfile
+from collections import OrderedDict
 
 top = """<html lang="en" ma1="ma"><head>
     <meta charset="utf-8">
@@ -102,23 +103,45 @@ bottom = """
 def get_var(varname, script):
     CMD = 'echo $(source ' + script + '; echo $%s)' % varname
     p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True, executable='/bin/bash')
-    return p.stdout.readlines()[0].strip()
+    return p.stdout.readlines()[0].strip().decode()
 
 
-with tempfile.TemporaryDirectory() as tmpdir:
-    os.system("git clone https://github.com/Joshua-Riek/ubuntu-rockchip.git " + tmpdir)
+def get_boards():
+    with tempfile.TemporaryDirectory() as tmpdir:
+        os.system("git clone https://github.com/Joshua-Riek/ubuntu-rockchip.git " + tmpdir)
 
-    boards = []
-    for file in sorted(os.listdir(tmpdir + "/config/boards/")):
-        boards.append(item.format(
-            "./boards/" + file[:-2] + "html",
-            get_var('BOARD_NAME', tmpdir + "/config/boards/" + file).decode(),
-            get_var('BOARD_MAKER', tmpdir + "/config/boards/" + file).decode(),
-            get_var('BOARD_SOC', tmpdir + "/config/boards/" + file).decode(),
-            get_var('BOARD_CPU', tmpdir + "/config/boards/" + file).decode(),
-            ))
+        boards = OrderedDict()
+        for board in sorted(os.listdir(tmpdir + "/config/boards/")):
+            boards[board[:-3]] = {
+                "BOARD_NAME": get_var('BOARD_NAME', tmpdir + "/config/boards/" + board),
+                "BOARD_MAKER": get_var('BOARD_MAKER', tmpdir + "/config/boards/" + board),
+                "BOARD_SOC": get_var('BOARD_SOC', tmpdir + "/config/boards/" + board),
+                "BOARD_CPU": get_var('BOARD_CPU', tmpdir + "/config/boards/" + board),
+            }
+        return boards
 
+
+def format_html(boards):
+    text = []
+    for board in boards:
+        text.append(item.format(
+            "./boards/" + board + ".html",
+            boards[board]["BOARD_NAME"],
+            boards[board]["BOARD_MAKER"],
+            boards[board]["BOARD_SOC"],
+            boards[board]["BOARD_CPU"],
+        ))
+    return top + ''.join(text) + bottom
+
+
+if __name__ == "__main__":
+    boards = get_boards()
+
+    tmp = boards["roc-rk3588s-pc"]
+    del boards["roc-rk3588s-pc"]
+    boards["roc-rk3588s-pc"] = tmp
+    boards.move_to_end("turing-rk1")
+
+    index_html = format_html(boards)
     with open("index.html", "w") as file:
-        file.write(top)
-        file.write(''.join(boards))
-        file.write(bottom)
+        file.write(index_html)
