@@ -1,4 +1,5 @@
-<html lang="en" ma1="ma"><head>
+<html lang="en" data-bs-theme="auto">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <style>
-        body  {
+        body {
             padding-top: 4.5rem;
         }
         .pill {
@@ -24,11 +25,25 @@
         pre.wrap {
             white-space: pre-wrap;
         }
+        table {
+            line-height: 1.5;
+            padding: .25rem .25rem;
+        }
     </style>
-    <meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
-<body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
+    <script>
+        if ($("html").attr("data-bs-theme") === "auto") {
+            const prefersColorSchemeQuery = "(prefers-color-scheme: dark)";
+            function updateTheme() {
+                const prefersDark = window.matchMedia(prefersColorSchemeQuery).matches;
+                $("html").attr("data-bs-theme", prefersDark ? "dark" : "light");
+            }
+            window.matchMedia(prefersColorSchemeQuery).addEventListener("change", updateTheme);
+            updateTheme();
+        }
+    </script>
+</head>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,11 +74,12 @@
 <main>
     <div class="container">
         <h2>Supported boards</h2>
-        <p>Ubuntu Linux images for various ARM-based single board computers (SBCs).</p>
+        <p>Ubuntu 22.04 and 24.04 for various Rockchip single board computers (SBCs).</p>
         <hr>
     </div>
     <div class="container">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover" >
+            <caption>Supported boards.</caption>
             <thead>
             <tr>
                 <th scope="col">Board</th>
@@ -74,158 +90,187 @@
             </thead>
             <tbody>
 
-
-            <tr data-href="./boards/armsom-sige7.html">
+            <tr>
+                <td><a href="./boards/aio-3588l.html">AIO 3588L</a></td>
+                <td>Firefly</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/armsom-aim7.html">ArmSoM AIM7</a></td>
+                <td>ArmSoM</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/armsom-sige5.html">ArmSoM Sige5</a></td>
+                <td>ArmSoM</td>
+                <td>Rockchip RK3576</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
                 <td><a href="./boards/armsom-sige7.html">ArmSoM Sige7</a></td>
                 <td>ArmSoM</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/armsom-w3.html">
+            <tr>
                 <td><a href="./boards/armsom-w3.html">ArmSoM w3</a></td>
                 <td>ArmSoM</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/indiedroid-nova.html">
+            <tr>
                 <td><a href="./boards/indiedroid-nova.html">Indiedroid Nova</a></td>
                 <td>9Tripod</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/lubancat-4.html">
+            <tr>
                 <td><a href="./boards/lubancat-4.html">LubanCat 4</a></td>
                 <td>LubanCat</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/mixtile-blade3.html">
+            <tr>
                 <td><a href="./boards/mixtile-blade3.html">Mixtile Blade 3</a></td>
                 <td>Mixtile</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/mixtile-core3588e.html">
+            <tr>
                 <td><a href="./boards/mixtile-core3588e.html">Mixtile Core 3588E</a></td>
                 <td>Mixtile</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/nanopc-t6.html">
+            <tr>
                 <td><a href="./boards/nanopc-t6.html">NanoPC T6</a></td>
                 <td>FriendlyElec</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/nanopi-r6c.html">
+            <tr>
                 <td><a href="./boards/nanopi-r6c.html">NanoPi R6C</a></td>
                 <td>FriendlyElec</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/nanopi-r6s.html">
+            <tr>
                 <td><a href="./boards/nanopi-r6s.html">NanoPi R6S</a></td>
                 <td>FriendlyElec</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/orangepi-3b.html">
+            <tr>
                 <td><a href="./boards/orangepi-3b.html">Orange Pi 3B</a></td>
                 <td>Xulong</td>
                 <td>Rockchip RK3566</td>
                 <td>ARM Cortex A55</td>
             </tr>
-            <tr data-href="./boards/orangepi-5-plus.html">
-                <td><a href="./boards/orangepi-5-plus.html">Orange Pi 5 Plus</a></td>
-                <td>Xulong</td>
-                <td>Rockchip RK3588</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/orangepi-5-pro.html">
-                <td><a href="./boards/orangepi-5-pro.html">Orange Pi 5 Pro</a></td>
-                <td>Xulong</td>
-                <td>Rockchip RK3588S</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/orangepi-5.html">
+            <tr>
                 <td><a href="./boards/orangepi-5.html">Orange Pi 5</a></td>
                 <td>Xulong</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/orangepi-5b.html">
+            <tr>
+                <td><a href="./boards/orangepi-5-max.html">Orange Pi 5 Max</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/orangepi-5-plus.html">Orange Pi 5 Plus</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/orangepi-5-pro.html">Orange Pi 5 Pro</a></td>
+                <td>Xulong</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
                 <td><a href="./boards/orangepi-5b.html">Orange Pi 5B</a></td>
                 <td>Xulong</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/radxa-cm5-io.html">
-                <td><a href="./boards/radxa-cm5-io.html">Radxa CM5 IO</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/radxa-cm5-rpi-cm4-io.html">
-                <td><a href="./boards/radxa-cm5-rpi-cm4-io.html">Radxa CM5 RPI CM4 IO</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/radxa-nx5-io.html">
-                <td><a href="./boards/radxa-nx5-io.html">Radxa NX5 IO</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/radxa-zero3.html">
-                <td><a href="./boards/radxa-zero3.html">Radxa Zero 3</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3566</td>
-                <td>ARM Cortex A55</td>
-            </tr>
-            <tr data-href="./boards/rock-5-itx.html">
-                <td><a href="./boards/rock-5-itx.html">ROCK 5 ITX</a></td>
-                <td>Radxa</td>
+            <tr>
+                <td><a href="./boards/orangepi-cm5.html">Orange Pi CM5</a></td>
+                <td>Xulong</td>
                 <td>Rockchip RK3588</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/rock-5a.html">
-                <td><a href="./boards/rock-5a.html">ROCK 5A</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/rock-5b-plus.html">
-                <td><a href="./boards/rock-5b-plus.html">ROCK 5B Plus</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/rock-5b.html">
-                <td><a href="./boards/rock-5b.html">ROCK 5B</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/rock-5c.html">
-                <td><a href="./boards/rock-5c.html">ROCK 5C</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S2</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/rock-5d.html">
-                <td><a href="./boards/rock-5d.html">ROCK 5D</a></td>
-                <td>Radxa</td>
-                <td>Rockchip RK3588S2</td>
-                <td>ARM Cortex A76 / A55</td>
-            </tr>
-            <tr data-href="./boards/roc-rk3588s-pc.html">
+            <tr>
                 <td><a href="./boards/roc-rk3588s-pc.html">ROC RK3588S PC</a></td>
                 <td>Firefly</td>
                 <td>Rockchip RK3588S</td>
                 <td>ARM Cortex A76 / A55</td>
             </tr>
-            <tr data-href="./boards/turing-rk1.html">
+            <tr>
+                <td><a href="./boards/rock-5-itx.html">ROCK 5 ITX</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/rock-5a.html">ROCK 5A</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/rock-5b.html">ROCK 5B</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/rock-5b-plus.html">ROCK 5B Plus</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/rock-5c.html">ROCK 5C</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S2</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/rock-5d.html">ROCK 5D</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S2</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/radxa-cm5-io.html">Radxa CM5 IO</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/radxa-cm5-rpi-cm4-io.html">Radxa CM5 RPI CM4 IO</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/radxa-nx5-io.html">Radxa NX5 IO</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3588S</td>
+                <td>ARM Cortex A76 / A55</td>
+            </tr>
+            <tr>
+                <td><a href="./boards/radxa-zero3.html">Radxa Zero 3</a></td>
+                <td>Radxa</td>
+                <td>Rockchip RK3566</td>
+                <td>ARM Cortex A55</td>
+            </tr>
+            <tr>
                 <td><a href="./boards/turing-rk1.html">Turing RK1</a></td>
                 <td>Turing Machines</td>
                 <td>Rockchip RK3588</td>
@@ -236,5 +281,8 @@
         <hr>
     </div>
 </main>
-</body>
+<footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>This project is not officially affiliated with Canonical Ltd or Fuzhou Rockchip Electronics Co., Ltd.</p>
+</footer>
 </html>

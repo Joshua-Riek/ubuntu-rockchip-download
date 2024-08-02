@@ -4,45 +4,52 @@ import os
 import subprocess
 import tempfile
 
-top = """<html lang="en">
+top = """<html lang="en" data-bs-theme="auto">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Ubuntu Rockchip</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <style>
-        body {{
+        body {
             padding-top: 4.5rem;
-        }}
-
-        .pill {{
+        }
+        .pill {
             border-radius: 50px;
-        }}
-
-        code.shell-root:before {{
+        }
+        code.shell-root:before {
             content: "# ";
-        }}
-
-        code.shell-normal:before {{
+        }
+        code.shell-normal:before {
             content: "$ ";
-        }}
-
-        pre.wrap {{
+        }
+        pre.wrap {
             white-space: pre-wrap;
-        }}
+        }
+        table {
+            line-height: 1.5;
+            padding: .25rem .25rem;
+        }
     </style>
+    <script>
+        if ($("html").attr("data-bs-theme") === "auto") {
+            const prefersColorSchemeQuery = "(prefers-color-scheme: dark)";
+            function updateTheme() {
+                const prefersDark = window.matchMedia(prefersColorSchemeQuery).matches;
+                $("html").attr("data-bs-theme", prefersDark ? "dark" : "light");
+            }
+            window.matchMedia(prefersColorSchemeQuery).addEventListener("change", updateTheme);
+            updateTheme();
+        }
+    </script>
 </head>
-<body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,13 +79,16 @@ top = """<html lang="en">
     </nav>
 </header>
 <main>
-    <div class="container">
+"""
+
+main = """<div class="container">
         <h2>Downloads for the {0}</h2>
-        <p>Ubuntu Linux images for various ARM-based single board computers (SBCs).</p>
+        <p>Ubuntu 22.04 and 24.04 for various Rockchip single board computers (SBCs).</p>
         <hr>
     </div>
     <div class="container">
         <table class="table table-sm table-hover">
+            <caption>Downloads relevant to the {0}.</caption>
             <thead>
             <tr>
                 <th scope="col">File</th>
@@ -93,6 +103,7 @@ top = """<html lang="en">
 item = """
             <tr>
                 <td>
+                    <i class="bi-download"></i>
                     <a href="{0}">{1}</a>
                 </td>
                 <td>{2}</td>
@@ -106,7 +117,9 @@ bottom = """
         <hr>
     </div>
 </main>
-</body>
+<footer class="container">
+    <p>This project is not officially affiliated with Canonical Ltd or Fuzhou Rockchip Electronics Co., Ltd.</p>
+</footer>
 </html>
 """
 
@@ -136,7 +149,7 @@ def get_var(varname, script):
     p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True, executable='/bin/bash')
     return p.stdout.readlines()[0].strip()
 
-
+total=0
 with tempfile.TemporaryDirectory() as tmpdir:
     os.system("git clone https://github.com/Joshua-Riek/ubuntu-rockchip.git " + tmpdir)
     with tempfile.NamedTemporaryFile() as tmpfile:
@@ -159,16 +172,18 @@ with tempfile.TemporaryDirectory() as tmpdir:
                 desc = "Ubuntu 22.04 LTS Server with Linux 5.10"
         else:
             desc = "-"
-
+        total += y["size"]
         boards.append([y["browser_download_url"], y["name"],
                        datetime.datetime.strptime(y["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M"),
                        humanbytes(y["size"]), desc])
 
     for y in os.listdir(tmpdir + "/config/boards/"):
         file = open("%s" % "boards/" + y[:-2] + "html", "w")
-        file.write(top.format(get_var('BOARD_NAME', tmpdir + "/config/boards/" + y).decode()))
+        file.write(top)
+        file.write(main.format(get_var('BOARD_NAME', tmpdir + "/config/boards/" + y).decode()))
         for x in boards:
             if y[:-2] in x[1]:
                 file.write(item.format(x[0], x[1], x[2], x[3], x[4]))
         file.write(bottom)
         file.close()
+print(humanbytes(total))
