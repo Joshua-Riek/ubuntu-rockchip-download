@@ -6,46 +6,51 @@ import tempfile
 
 top = """<html lang="en" data-bs-theme="auto">
 <head>
+    <title>Ubuntu Rockchip</title>
+    <meta content="https://joshua-riek.github.io/ubuntu-rockchip-download/{1}" property="og:url" />
+    <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Ubuntu images for the {0}">
+    <meta property="og:description" content="Ubuntu images for the {0}">
+    <meta property="twitter:description" content="Ubuntu images for the {0}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Ubuntu Rockchip</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <style>
-        body {
+        body {{
             padding-top: 4.5rem;
-        }
-        .pill {
+        }}
+        .pill {{
             border-radius: 50px;
-        }
-        code.shell-root:before {
+        }}
+        code.shell-root:before {{
             content: "# ";
-        }
-        code.shell-normal:before {
+        }}
+        code.shell-normal:before {{
             content: "$ ";
-        }
-        pre.wrap {
+        }}
+        pre.wrap {{
             white-space: pre-wrap;
-        }
-        table {
+        }}
+        table {{
             line-height: 1.5;
             padding: .25rem .25rem;
-        }
+        }}
     </style>
     <script>
-        if ($("html").attr("data-bs-theme") === "auto") {
+        if ($("html").attr("data-bs-theme") === "auto") {{
             const prefersColorSchemeQuery = "(prefers-color-scheme: dark)";
-            function updateTheme() {
+            function updateTheme() {{
                 const prefersDark = window.matchMedia(prefersColorSchemeQuery).matches;
                 $("html").attr("data-bs-theme", prefersDark ? "dark" : "light");
-            }
+            }}
             window.matchMedia(prefersColorSchemeQuery).addEventListener("change", updateTheme);
             updateTheme();
-        }
+        }}
     </script>
 </head>
 <header>
@@ -179,7 +184,7 @@ with tempfile.TemporaryDirectory() as tmpdir:
 
     for y in os.listdir(tmpdir + "/config/boards/"):
         file = open("%s" % "boards/" + y[:-2] + "html", "w")
-        file.write(top)
+        file.write(top.format(get_var('BOARD_NAME', tmpdir + "/config/boards/" + y).decode(), "boards/" + y[:-2] + "html"))
         file.write(main.format(get_var('BOARD_NAME', tmpdir + "/config/boards/" + y).decode()))
         for x in boards:
             if y[:-2] in x[1]:
