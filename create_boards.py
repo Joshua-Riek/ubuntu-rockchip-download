@@ -168,11 +168,15 @@ with tempfile.TemporaryDirectory() as tmpdir:
         elif "desktop" in y["name"]:
             if "24.04" in y["name"]:
                 desc = "Ubuntu 24.04 LTS Desktop with Linux 6.1"
+            elif "24.10" in y["name"]:
+                desc = "Ubuntu 24.10 Desktop with Linux 6.11"
             else:
                 desc = "Ubuntu 22.04 LTS Desktop with Linux 5.10"
         elif "server" in y["name"]:
             if "24.04" in y["name"]:
                 desc = "Ubuntu 24.04 LTS Server with Linux 6.1"
+            elif "24.10" in y["name"]:
+                desc = "Ubuntu 24.10 Server with Linux 6.11"
             else:
                 desc = "Ubuntu 22.04 LTS Server with Linux 5.10"
         else:
