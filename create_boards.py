@@ -88,7 +88,7 @@ top = """<html lang="en" data-bs-theme="auto">
 
 main = """<div class="container">
         <h2>Downloads for the {0}</h2>
-        <p>Ubuntu 22.04 and 24.04 for various Rockchip single board computers (SBCs).</p>
+        <p>Ubuntu for various Rockchip single board computers (SBCs).</p>
         <hr>
     </div>
     <div class="container">
